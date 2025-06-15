@@ -1,43 +1,29 @@
-<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
+# Troubleshooting `raw` modifier on blade templates
 
-## About Statamic
+The [raw modifier](https://statamic.dev/modifiers/raw) is documented to work on Markdown fields.
 
-Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
+However, it was shared several times on Discord that it could be applied on icon fieldtypes too. In that case, it turns the svg content into the icon name or url.
+`{{ svg src="{ icon | raw } }}` is valid in Antlers and makes it possible to use the modifiers provided by the `svg` tag (anything is accepted but adding a `class` is an obvious thing to do).
 
-> [!NOTE]
-> This repository contains the code for a fresh Statamic project that is installed via the Statamic CLI tool.
->
-> The code for the Statamic Composer package itself can be found at the [Statamic core package repository][cms-repo].
+This [Discord conversation](https://discord.com/channels/489818810157891584/1381990087121834087) has been opened to clarify how the same thing could be done in Blade, with no success so far.
 
+# The website
 
-## Learning Statamic
+## Configuration
 
-Statamic has extensive [documentation][docs]. We dedicate a significant amount of time and energy every day to improving them, so if something is unclear, feel free to open issues for anything you find confusing or incomplete. We are happy to consider anything you feel will make the docs and CMS better.
+This demonstration website was created with the `statamic new` command, then the following elements were added:
+ - 1 blueprint to contain a replicator to show icons.
+ - 2 templates demonstrating the templating of an `Icon` fieldtype vs what is possible when using the `svg` tag, respectively rendered in Antlers and Blade.
+ - 2 entries with the same content, except for the template supposed to render them.
 
-## Support
+## URLs
 
-We provide official developer support on [Statamic Pro](https://statamic.com/pricing) projects. Community-driven support is available on the [forum](https://statamic.com/forum) and in [Discord][discord].
+The 2 added entries are at URL:
+ - `/antlers` (working page)
+ - `/blade` (includes the suggested snippet from the Discord conversation and therefore shows an error)
 
+## Control panel connection
 
-## Contributing
-
-Thank you for considering contributing to Statamic! We simply ask that you review the [contribution guide][contribution] before you open issues or send pull requests.
-
-
-## Code of Conduct
-
-In order to ensure that the Statamic community is welcoming to all and generally a rad place to belong, please review and abide by the [Code of Conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct).
-
-
-## Important Links
-
-- [Statamic Main Site](https://statamic.com)
-- [Statamic Documentation][docs]
-- [Statamic Core Package Repo][cms-repo]
-- [Statamic Migrator](https://github.com/statamic/migrator)
-- [Statamic Discord][discord]
-
-[docs]: https://statamic.dev/
-[discord]: https://statamic.com/discord
-[contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
-[cms-repo]: https://github.com/statamic/cms
+You can use the below credentials to access the control panel:
+ - Login: `admin-user@statamic.dev`
+ - Password: `Admin`

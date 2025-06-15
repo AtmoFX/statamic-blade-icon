@@ -1,0 +1,4 @@
+name: 'Admin user'
+super: true
+id: 530bd50d-23e1-4d72-a48d-c70bc9d4e2dd
+password: Admin
